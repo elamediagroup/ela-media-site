@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ELA Media Group — Reels, social content & websites for small businesses</title>
+<meta name="description" content="ELA Media Group makes the reels, social content, and websites that help small businesses look professional and win more customers.">
+<meta property="og:title" content="ELA Media Group">
+<meta property="og:description" content="Reels, social content, and websites for small businesses.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://elamediagroup.com/">
+<meta name="theme-color" content="#14101a">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --ink:#14101a;          /* deep aubergine-black base */
+    --surface:#1e1826;      /* raised panels */
+    --elevated:#29212f;     /* cards */
+    --line:#3a3346;         /* hairlines */
+    --hi:#f2eee7;           /* warm off-white text */
+    --muted:#a89fb8;        /* lavender-grey secondary text */
+    --faint:#6f6880;        /* smallest print */
+    --gold:#e6b14c;
+    --gold-soft:#f0cd85;
+    --blue:#7d97ff;
+    --radius:14px;
+    --maxw:1160px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:
+      radial-gradient(120% 90% at 85% -10%, rgba(230,177,76,.10), transparent 55%),
+      radial-gradient(90% 80% at -5% 108%, rgba(125,151,255,.09), transparent 55%),
+      var(--ink);
+    color:var(--hi);
+    font-family:"Inter",system-ui,-apple-system,sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+  a{color:inherit;}
+  h1,h2,h3{font-family:"Fraunces",Georgia,serif;font-weight:600;letter-spacing:-.015em;line-height:1.05;margin:0;}
+  ::selection{background:var(--gold);color:var(--ink);}
+
+  /* ---------- Nav ---------- */
+  .nav{
+    position:sticky;top:0;z-index:50;
+    backdrop-filter:blur(10px);
+    background:rgba(20,16,26,.72);
+    border-bottom:1px solid transparent;
+    transition:border-color .3s ease, background .3s ease;
+  }
+  .nav.scrolled{border-color:var(--line);background:rgba(20,16,26,.9);}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:72px;}
+  .brand{display:flex;flex-direction:column;text-decoration:none;line-height:1;}
+  .brand .b-main{font-family:"Fraunces",serif;font-weight:600;font-size:21px;letter-spacing:.02em;}
+  .brand .b-sub{font-size:9.5px;letter-spacing:.32em;color:var(--muted);margin-top:3px;}
+  .nav-links{display:flex;align-items:center;gap:32px;}
+  .nav-links a{text-decoration:none;color:var(--muted);font-size:14.5px;font-weight:500;transition:color .2s;}
+  .nav-links a:hover{color:var(--hi);}
+  .nav-cta{
+    text-decoration:none;background:var(--gold);color:var(--ink);
+    font-weight:600;font-size:14px;padding:10px 18px;border-radius:9px;transition:background .2s;
+  }
+  .nav-cta:hover{background:var(--gold-soft);}
+  .menu-btn{display:none;background:none;border:0;color:var(--hi);font-size:26px;cursor:pointer;padding:4px;}
+
+  /* ---------- Hero ---------- */
+  .hero{position:relative;padding:96px 0 104px;}
+  .frame{position:relative;padding:52px 46px;}
+  .corner{position:absolute;width:30px;height:30px;border:2px solid var(--gold);pointer-events:none;opacity:.9;}
+  .corner.tl{top:0;left:0;border-right:0;border-bottom:0;}
+  .corner.tr{top:0;right:0;border-left:0;border-bottom:0;}
+  .corner.bl{bottom:0;left:0;border-right:0;border-top:0;}
+  .corner.br{bottom:0;right:0;border-left:0;border-top:0;}
+  .rec{display:inline-flex;align-items:center;gap:9px;font-size:13px;color:var(--muted);margin-bottom:26px;}
+  .rec .dot{width:9px;height:9px;border-radius:50%;background:#ff5d5d;box-shadow:0 0 0 0 rgba(255,93,93,.6);animation:pulse 2.2s infinite;}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,93,93,.5);}70%{box-shadow:0 0 0 9px rgba(255,93,93,0);}100%{box-shadow:0 0 0 0 rgba(255,93,93,0);}}
+  .hero h1{font-size:clamp(44px,8vw,88px);max-width:14ch;}
+  .hero p.lede{font-size:clamp(17px,2.2vw,21px);color:var(--muted);max-width:56ch;margin:26px 0 0;}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:38px;}
+  .btn{text-decoration:none;font-weight:600;font-size:15.5px;padding:15px 26px;border-radius:10px;transition:all .2s ease;display:inline-block;}
+  .btn.solid{background:var(--gold);color:var(--ink);}
+  .btn.solid:hover{background:var(--gold-soft);transform:translateY(-2px);}
+  .btn.ghost{border:1px solid var(--line);color:var(--hi);}
+  .btn.ghost:hover{border-color:var(--gold);color:var(--gold-soft);}
+  .hero-trust{margin-top:34px;font-size:14px;color:var(--faint);}
+
+  /* ---------- Section scaffolding ---------- */
+  section{padding:90px 0;}
+  .sec-head{max-width:640px;margin-bottom:52px;}
+  .kicker{font-size:14px;color:var(--gold-soft);font-weight:500;display:inline-flex;align-items:center;gap:10px;margin-bottom:18px;}
+  .kicker::before{content:"";width:26px;height:1px;background:var(--gold);}
+  h2.sec-title{font-size:clamp(32px,5vw,52px);}
+  .sec-sub{color:var(--muted);font-size:17.5px;margin:16px 0 0;max-width:54ch;}
+
+  /* ---------- Services ---------- */
+  #services{border-top:1px solid var(--line);}
+  .svc-layout{display:grid;grid-template-columns:0.8fr 1.2fr;gap:56px;align-items:start;}
+  .svc-list{display:flex;flex-direction:column;}
+  .svc{padding:30px 0;border-top:1px solid var(--line);}
+  .svc:first-child{border-top:0;padding-top:0;}
+  .svc h3{font-size:26px;margin-bottom:8px;}
+  .svc p{color:var(--muted);font-size:15.5px;margin:0;max-width:52ch;}
+  .svc .tags{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px;}
+  .svc .tags span{font-size:12.5px;color:var(--gold-soft);border:1px solid var(--line);padding:5px 11px;border-radius:100px;}
+
+  /* ---------- Work ---------- */
+  #work{border-top:1px solid var(--line);}
+  .work-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+  .tile{
+    position:relative;aspect-ratio:9/16;border-radius:var(--radius);overflow:hidden;
+    background:linear-gradient(160deg,var(--elevated),var(--surface));
+    border:1px solid var(--line);display:flex;flex-direction:column;justify-content:flex-end;
+    padding:18px;text-decoration:none;transition:border-color .25s ease, transform .25s ease;
+  }
+  .tile:hover{border-color:var(--gold);transform:translateY(-4px);}
+  .tile .play{
+    position:absolute;top:16px;left:16px;width:38px;height:38px;border-radius:50%;
+    border:1.5px solid rgba(242,238,231,.5);display:grid;place-items:center;color:var(--hi);font-size:13px;
+  }
+  .tile .t-label{font-size:14px;font-weight:600;}
+  .tile .t-meta{font-size:12.5px;color:var(--muted);margin-top:2px;}
+  .tile.invite{
+    background:transparent;border-style:dashed;justify-content:center;align-items:center;text-align:center;
+  }
+  .tile.invite .t-label{color:var(--gold-soft);}
+  .tile.invite p{font-size:13px;color:var(--muted);margin:6px 0 0;}
+
+  /* ---------- Pricing ---------- */
+  #pricing{border-top:1px solid var(--line);}
+  .price-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;max-width:820px;}
+  .plan{
+    position:relative;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+    padding:36px 32px;display:flex;flex-direction:column;
+  }
+  .plan.feat{background:var(--elevated);border-color:transparent;box-shadow:0 26px 64px -30px rgba(0,0,0,.8);}
+  .plan.feat .corner{width:20px;height:20px;}
+  .plan.feat .corner.tl{top:12px;left:12px;}.plan.feat .corner.tr{top:12px;right:12px;}
+  .plan.feat .corner.bl{bottom:12px;left:12px;}.plan.feat .corner.br{bottom:12px;right:12px;}
+  .plan .p-tag{align-self:flex-start;font-size:12px;font-weight:600;color:var(--ink);background:var(--gold);padding:5px 11px;border-radius:100px;margin-bottom:16px;}
+  .plan h3{font-size:23px;margin-bottom:6px;}
+  .plan .p-for{font-size:14px;color:var(--muted);margin:0 0 22px;}
+  .p-price{display:flex;align-items:baseline;gap:6px;margin-bottom:24px;}
+  .p-price .amt{font-family:"Fraunces",serif;font-weight:600;font-size:44px;line-height:1;}
+  .plan.feat .p-price .amt{color:var(--gold-soft);}
+  .p-price .per{font-size:15px;color:var(--muted);}
+  .plan ul{list-style:none;padding:0;margin:0 0 28px;flex:1;}
+  .plan li{position:relative;padding:9px 0 9px 24px;font-size:14.5px;border-top:1px solid rgba(255,255,255,.06);}
+  .plan li:first-child{border-top:0;}
+  .plan li::before{content:"";position:absolute;left:0;top:16px;width:7px;height:7px;border-radius:2px;background:var(--muted);}
+  .plan.feat li::before{background:var(--gold);}
+  .price-note{margin-top:22px;font-size:14px;color:var(--muted);max-width:820px;}
+  .price-note b{color:var(--gold-soft);font-weight:600;}
+
+  /* ---------- À la carte / add-ons ---------- */
+  .ala{margin-top:64px;max-width:820px;}
+  .ala-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:8px;}
+  .ala-head h3{font-family:"Fraunces",Georgia,serif;font-weight:600;letter-spacing:-.015em;font-size:26px;}
+  .ala-head .ala-tag{font-size:12.5px;color:var(--muted);}
+  .ala-sub{color:var(--muted);font-size:15px;margin:0 0 26px;max-width:60ch;}
+  .ala-sub b{color:var(--gold-soft);font-weight:600;}
+  .ala-group{margin-top:30px;}
+  .ala-group > .g-label{font-size:12.5px;letter-spacing:.14em;color:var(--faint);text-transform:uppercase;margin-bottom:2px;}
+  .ala-list{border-top:1px solid var(--line);}
+  .ala-row{display:flex;align-items:flex-start;justify-content:space-between;gap:24px;padding:20px 0;border-top:1px solid var(--line);}
+  .ala-row:first-child{border-top:0;}
+  .ala-info .ala-name{font-family:"Fraunces",serif;font-weight:600;font-size:18px;display:block;}
+  .ala-info .ala-desc{color:var(--muted);font-size:14.5px;margin-top:5px;max-width:46ch;}
+  .ala-info .ala-note{color:var(--faint);font-size:12.5px;margin-top:7px;}
+  .ala-price{flex-shrink:0;text-align:right;white-space:nowrap;}
+  .ala-price .amt{font-family:"Fraunces",serif;font-weight:600;font-size:26px;color:var(--gold-soft);line-height:1;}
+  .ala-price .per{display:block;font-size:12.5px;color:var(--muted);margin-top:4px;white-space:normal;max-width:130px;margin-left:auto;}
+  .ala-price .from{display:block;font-size:11.5px;color:var(--faint);margin-bottom:3px;letter-spacing:.03em;}
+  .ala-soon{align-self:center;font-size:11px;font-weight:600;color:var(--gold-soft);border:1px solid var(--line);padding:4px 9px;border-radius:100px;white-space:nowrap;}
+  .ala-cta{margin-top:34px;}
+
+  /* ---------- About ---------- */
+  #about{border-top:1px solid var(--line);}
+  .about-layout{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;}
+  .about-copy h2{font-size:clamp(30px,4.5vw,46px);margin-bottom:22px;}
+  .about-copy p{color:var(--muted);font-size:16.5px;margin:0 0 16px;max-width:52ch;}
+  .about-copy p strong{color:var(--hi);font-weight:600;}
+  .founders{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:34px;}
+  .founder{display:flex;align-items:center;gap:16px;padding:16px 0;border-top:1px solid var(--line);}
+  .founder:first-child{border-top:0;padding-top:0;}
+  .founder:last-child{padding-bottom:0;}
+  .f-badge{width:52px;height:52px;border-radius:12px;background:linear-gradient(150deg,var(--gold),#b98322);display:grid;place-items:center;font-family:"Fraunces",serif;font-weight:600;font-size:22px;color:var(--ink);flex-shrink:0;}
+  .founder .f-name{font-weight:600;font-size:16px;}
+  .founder .f-role{font-size:13.5px;color:var(--muted);}
+
+  /* ---------- Contact ---------- */
+  #contact{border-top:1px solid var(--line);}
+  .cta-frame{position:relative;text-align:center;padding:72px 32px;max-width:760px;margin:0 auto;}
+  .cta-frame h2{font-size:clamp(32px,5.5vw,56px);margin-bottom:18px;}
+  .cta-frame p{color:var(--muted);font-size:17.5px;max-width:46ch;margin:0 auto 34px;}
+  .cta-frame .btn.solid{font-size:16.5px;padding:16px 32px;}
+  .contact-alt{margin-top:30px;font-size:15px;color:var(--muted);}
+  .contact-alt a{color:var(--gold-soft);text-decoration:none;}
+  .contact-alt a:hover{text-decoration:underline;}
+
+  /* ---------- Footer ---------- */
+  footer{border-top:1px solid var(--line);padding:44px 0;}
+  .foot-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;}
+  .foot-inner .b-main{font-family:"Fraunces",serif;font-weight:600;font-size:18px;}
+  .foot-links{display:flex;gap:24px;}
+  .foot-links a{color:var(--muted);text-decoration:none;font-size:14px;}
+  .foot-links a:hover{color:var(--hi);}
+  .foot-fine{font-size:12.5px;color:var(--faint);}
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:920px){
+    .svc-layout,.about-layout{grid-template-columns:1fr;gap:36px;}
+    .work-grid{grid-template-columns:repeat(2,1fr);}
+    .price-grid{grid-template-columns:1fr;max-width:440px;}
+  }
+  @media (max-width:680px){
+    .nav-links{
+      display:none;position:absolute;top:72px;left:0;right:0;
+      flex-direction:column;gap:0;background:var(--surface);border-bottom:1px solid var(--line);padding:8px 24px 20px;
+    }
+    .nav-links.open{display:flex;}
+    .nav-links a{padding:14px 0;border-bottom:1px solid var(--line);width:100%;}
+    .nav-links .nav-cta{margin-top:14px;text-align:center;}
+    .menu-btn{display:block;}
+    .frame{padding:40px 26px;}
+    .hero{padding:64px 0 72px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{transition:none !important;animation:none !important;scroll-behavior:auto;}
+  }
+  a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:4px;}
+</style>
+</head>
+<body>
+
+<!-- ===================== NAV ===================== -->
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <!-- Swap this text wordmark for your logo image if you prefer -->
+    <a href="#top" class="brand">
+      <span class="b-main">ELA</span>
+      <span class="b-sub">MEDIA&nbsp;GROUP</span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#work">Work</a>
+      <a href="#services">Services</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#about">About</a>
+      <a class="nav-cta" href="#contact">Book a call</a>
+    </nav>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ===================== HERO ===================== -->
+<section class="hero">
+  <div class="wrap">
+    <div class="frame">
+      <span class="corner tl"></span><span class="corner tr"></span>
+      <span class="corner bl"></span><span class="corner br"></span>
+      <span class="rec"><span class="dot"></span>Now taking on new clients</span>
+      <h1>Your brand, in motion.</h1>
+      <p class="lede">ELA Media Group makes the reels, social content, and websites that help small businesses look professional and win more customers.</p>
+      <div class="hero-actions">
+        <a class="btn solid" href="#contact">Book a free consultation</a>
+        <a class="btn ghost" href="#work">See our work</a>
+      </div>
+      <p class="hero-trust">Reels, social content, and websites for small businesses — worked with you remotely, wherever you're based.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SERVICES ===================== -->
+<section id="services">
+  <div class="wrap svc-layout">
+    <div class="sec-head" style="margin-bottom:0;">
+      <span class="kicker">What we make</span>
+      <h2 class="sec-title">Everything your brand needs to show up well.</h2>
+      <p class="sec-sub">Pick one thing or the whole set — we build it to match how you actually want to look.</p>
+    </div>
+    <div class="svc-list">
+      <div class="svc">
+        <h3>Short-form reels</h3>
+        <p>Scroll-stopping video for Instagram, TikTok, and YouTube — edited from the footage you already have, cut to keep people watching.</p>
+        <div class="tags"><span>Editing</span><span>Captions</span><span>Hooks</span></div>
+      </div>
+      <div class="svc">
+        <h3>Social content &amp; management</h3>
+        <p>A steady stream of on-brand posts and a content calendar, so your pages stay active without you thinking about it.</p>
+        <div class="tags"><span>Graphics</span><span>Calendar</span><span>Analytics</span></div>
+      </div>
+      <div class="svc">
+        <h3>Websites</h3>
+        <p>Fast, modern, mobile-ready sites that make a small business look established — and turn visitors into calls and bookings.</p>
+        <div class="tags"><span>Design</span><span>Build</span><span>Hosting</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== WORK ===================== -->
+<!-- Replace each .tile below with a real reel: wrap in <a href="LINK_TO_REEL"> and
+     drop in a thumbnail (e.g. style="background-image:url('thumb.jpg');background-size:cover"). -->
+<section id="work">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">Work</span>
+      <h2 class="sec-title">Recent work.</h2>
+      <p class="sec-sub">A look at what we've been building. New pieces added as we ship them.</p>
+    </div>
+    <div class="work-grid">
+      <a class="tile" href="#contact">
+        <span class="play">▶</span>
+        <span class="t-label">Reel — coming soon</span>
+        <span class="t-meta">Local business</span>
+      </a>
+      <a class="tile" href="#contact">
+        <span class="play">▶</span>
+        <span class="t-label">Reel — coming soon</span>
+        <span class="t-meta">Restaurant</span>
+      </a>
+      <a class="tile" href="#contact">
+        <span class="play">▶</span>
+        <span class="t-label">Reel — coming soon</span>
+        <span class="t-meta">Student org</span>
+      </a>
+      <a class="tile invite" href="#contact">
+        <span class="t-label">Your project here</span>
+        <p>Book a free call to get started</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PRICING ===================== -->
+<section id="pricing">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">Ways to work together</span>
+      <h2 class="sec-title">Simple monthly plans.</h2>
+      <p class="sec-sub">Content, handled every month — no surprises, cancel anytime.</p>
+    </div>
+    <div class="price-grid">
+      <!-- Essentials -->
+      <article class="plan">
+        <h3>Essentials</h3>
+        <p class="p-for">For getting consistent and staying active.</p>
+        <div class="p-price"><span class="amt">$500</span><span class="per">/ month</span></div>
+        <ul>
+          <li>8 pieces of content per month (2 / week)</li>
+          <li>Clean editing — cuts, captions, music</li>
+          <li>Posting on 1–2 platforms</li>
+          <li>Monthly content calendar</li>
+          <li>Brand consistency (colors, fonts, style)</li>
+          <li>Basic analytics report</li>
+          <li>1 strategy call per month</li>
+        </ul>
+        <a class="btn ghost" href="#contact">Choose Essentials</a>
+      </article>
+      <!-- Growth (featured) -->
+      <article class="plan feat">
+        <span class="corner tl"></span><span class="corner tr"></span>
+        <span class="corner bl"></span><span class="corner br"></span>
+        <span class="p-tag">Most popular</span>
+        <h3>Growth</h3>
+        <p class="p-for">For businesses ready to actually grow their audience.</p>
+        <div class="p-price"><span class="amt">$1,000</span><span class="per">/ month</span></div>
+        <ul>
+          <li>16–20 pieces of content per month (4–5 / week)</li>
+          <li>Advanced editing — transitions, subtitles, effects</li>
+          <li>Posting on 3 platforms</li>
+          <li>Full content calendar</li>
+          <li>Branding optimization + templates</li>
+          <li>Weekly analytics &amp; insights</li>
+          <li>Lead-focused content (offers, CTAs, promos)</li>
+          <li>2 strategy calls per month + priority support</li>
+        </ul>
+        <a class="btn solid" href="#contact">Start with Growth</a>
+      </article>
+    </div>
+    <!-- ===== À la carte + add-ons ===== -->
+    <div class="ala">
+      <div class="ala-head">
+        <h3>Prefer a one-off?</h3>
+        <span class="ala-tag">No monthly commitment</span>
+      </div>
+      <p class="ala-sub">Just need one thing? Grab it on its own. <b>Piece for piece, the monthly plans above are the better deal</b> — these are for when you only want a single project.</p>
+
+      <!-- One-off projects -->
+      <div class="ala-group">
+        <div class="g-label">One-off projects</div>
+        <div class="ala-list">
+          <div class="ala-row">
+            <div class="ala-info">
+              <span class="ala-name">Reel</span>
+              <div class="ala-desc">Edited from the footage you send — clean cuts, captions, and music, on brand.</div>
+            </div>
+            <div class="ala-price"><span class="amt">$50</span><span class="per">/ reel</span></div>
+          </div>
+          <div class="ala-row">
+            <div class="ala-info">
+              <span class="ala-name">Landing page</span>
+              <div class="ala-desc">A single, polished one-page site. Your copy, one round of revisions.</div>
+            </div>
+            <div class="ala-price"><span class="from">from</span><span class="amt">$300</span><span class="per">$300–450</span></div>
+          </div>
+          <div class="ala-row">
+            <div class="ala-info">
+              <span class="ala-name">Full website</span>
+              <div class="ala-desc">3–5 pages, mobile-ready, built to convert. Light copy help + two rounds of revisions.</div>
+            </div>
+            <div class="ala-price"><span class="from">from</span><span class="amt">$600</span><span class="per">$600–1,000</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Monthly add-ons -->
+      <div class="ala-group">
+        <div class="g-label">Monthly add-ons</div>
+        <div class="ala-list">
+          <div class="ala-row">
+            <div class="ala-info">
+              <span class="ala-name">Website care plan</span>
+              <div class="ala-desc">Hosting, domain, and small monthly updates handled for you.</div>
+            </div>
+            <div class="ala-price"><span class="amt">$35</span><span class="per">/ month</span></div>
+          </div>
+          <div class="ala-row">
+            <div class="ala-info">
+              <span class="ala-name">Ad management</span>
+              <div class="ala-desc">We run and optimize your paid social — using analytics to double down on what's working and cut what isn't. You pay the ad platform directly, and we only bill on the sales we bring in, tracked and reported every month.</div>
+              <div class="ala-note">Best paired with a monthly content plan — good ads need good creative.</div>
+            </div>
+            <div class="ala-price"><span class="amt">10%</span><span class="per">of revenue we drive</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ala-cta">
+        <a class="btn ghost" href="#contact">Ask about a one-off</a>
+      </div>
+    </div>
+
+    <p class="price-note"><b>Just starting out?</b> Ask about our intro rate for your first project.</p>
+  </div>
+</section>
+
+<!-- ===================== ABOUT ===================== -->
+<section id="about">
+  <div class="wrap about-layout">
+    <div class="about-copy">
+      <span class="kicker">Who we are</span>
+      <h2>A small team that gives your brand real attention.</h2>
+      <p><strong>Eli and Landon met at Texas Boys State in 2025</strong> and started ELA Media Group with one idea: small businesses deserve the same quality of design and content the big companies get — without the big-agency price tag.</p>
+      <p>We're young, hungry, and hands-on. When you work with us, you're not passed off to a junior on a huge client list — you get founders who care whether your business actually grows.</p>
+    </div>
+    <div class="founders">
+      <div class="founder">
+        <span class="f-badge">E</span>
+        <div><div class="f-name">Eli Prestwood</div><div class="f-role">Co-founder — content &amp; strategy</div></div>
+      </div>
+      <div class="founder">
+        <span class="f-badge">L</span>
+        <div><div class="f-name">Landon</div><div class="f-role">Co-founder — web design</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CONTACT ===================== -->
+<section id="contact">
+  <div class="wrap">
+    <div class="cta-frame">
+      <span class="corner tl"></span><span class="corner tr"></span>
+      <span class="corner bl"></span><span class="corner br"></span>
+      <h2>Let's get your brand in motion.</h2>
+      <p>Book a free consultation and we'll show you exactly what we'd do for your business — no pressure.</p>
+      <!-- This links to your existing Google consultation form. Swap if you change it. -->
+      <a class="btn solid" href="https://docs.google.com/forms/d/e/1FAIpQLScgCUBANyV8kS92OrCXnnHJPdVoA6EtuJIZWr1JJQzIAdT-Iw/viewform" target="_blank" rel="noopener">Book a free consultation</a>
+      <p class="contact-alt">Or reach us at <a href="mailto:eliprestwood@gmail.com">eliprestwood@gmail.com</a> · <a href="https://instagram.com/elamedia0" target="_blank" rel="noopener">@elamedia0</a></p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer>
+  <div class="wrap foot-inner">
+    <span class="b-main">ELA Media Group</span>
+    <nav class="foot-links">
+      <a href="#work">Work</a>
+      <a href="#services">Services</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <span class="foot-fine">© 2026 ELA Media Group</span>
+  </div>
+</footer>
+
+<script>
+  // Nav border on scroll
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 12);
+  onScroll();
+  window.addEventListener('scroll', onScroll, {passive:true});
+
+  // Mobile menu
+  const btn = document.getElementById('menuBtn');
+  const links = document.getElementById('navLinks');
+  btn.addEventListener('click', () => {
+    const open = links.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+    btn.textContent = open ? '✕' : '☰';
+  });
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    links.classList.remove('open'); btn.textContent = '☰'; btn.setAttribute('aria-expanded','false');
+  }));
+</script>
+</body>
+</html>
